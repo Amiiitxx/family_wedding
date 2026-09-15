@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+
+<section class="page-hero page-hero--sm" style="background-image: url('{% static 'images/stores-hero.jpg' %}');" aria-label="Stores page header">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <p class="page-hero-eyebrow">Find Us</p>
+    <h1 class="page-hero-title">Our Stores</h1>
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <a href="{% url 'core:home' %}" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true" class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Our Stores</span>
+    </nav>
+  </div>
+</section>
+
+<section class="section stores-page-section" aria-labelledby="stores-page-heading">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Across Malabar</p>
+      <h2 class="section-title" id="stores-page-heading">Our Stores</h2>
+      <p class="section-subtitle">Shop from our world class showrooms</p>
+    </div>
+
+    <div class="stores-grid stores-grid--full">
+      {% for store in stores %}
+      {% include "components/store_card.html" with store=store %}
+      {% empty %}
+      <p class="empty-state">Store information coming soon. Please <a href="{% url 'core:contact' %}">contact us</a>.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

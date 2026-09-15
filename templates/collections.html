@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+
+<section class="page-hero page-hero--sm" style="background-image: url('{% static 'images/collections-hero.jpg' %}');" aria-label="Collections page header">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <p class="page-hero-eyebrow">Curated For You</p>
+    <h1 class="page-hero-title">Our Collections</h1>
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <a href="{% url 'core:home' %}" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true" class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Collections</span>
+    </nav>
+  </div>
+</section>
+
+<section class="section collections-page-section" aria-labelledby="collections-page-heading">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Wedding Fashion</p>
+      <h2 class="section-title" id="collections-page-heading">The Ultimate Wedding Destination</h2>
+      <p class="section-body">
+        We have the trendy and classic outfits for your special day. Make it even more special experience, because your loved ones deserve more. Explore the latest collections from all over India and abroad.
+      </p>
+    </div>
+
+    <div class="collections-grid collections-grid--large">
+      {% for collection in collections %}
+      <article class="collection-card" aria-label="{{ collection.name }}">
+        <div class="collection-card-link">
+          <div class="collection-card-img-wrap">
+            {% if collection.image %}
+            <img src="{{ collection.image.url }}"
+                 alt="{{ collection.name }}"
+                 class="collection-card-img"
+                 loading="lazy" />
+            {% else %}
+            <div class="collection-card-placeholder">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            {% endif %}
+            <div class="collection-card-overlay"></div>
+          </div>
+          <div class="collection-card-content">
+            <h3 class="collection-card-title">{{ collection.name }}</h3>
+            {% if collection.description %}
+            <p class="collection-card-desc">{{ collection.description }}</p>
+            {% endif %}
+            <a href="{% url 'core:contact' %}" class="btn btn-primary btn-sm" style="margin-top:1rem;">Enquire About This</a>
+          </div>
+        </div>
+      </article>
+      {% empty %}
+      <div class="empty-state-wrap">
+        <p class="empty-state">Collections coming soon. <a href="{% url 'core:contact' %}">Contact us</a> to learn more.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="contact-cta-section" aria-labelledby="collections-cta-heading">
+  <div class="contact-cta-overlay"></div>
+  <div class="container contact-cta-inner">
+    <div class="contact-cta-text">
+      <h2 class="contact-cta-title" id="collections-cta-heading">Need Help Choosing?</h2>
+      <p class="contact-cta-body">Our expert team is here to help you find the perfect outfit. Visit any of our stores or reach us for a personal consultation.</p>
+      <div class="contact-cta-actions">
+        <a href="{% url 'core:contact' %}" class="btn btn-primary btn-lg">Enquire Now</a>
+        <a href="{% url 'core:stores' %}" class="btn btn-outline-light btn-lg">Find a Store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

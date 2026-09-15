@@ -1,0 +1,303 @@
+/* ═══════════════════════════════════════════════════════════════
+   Family Wedding Centre — Responsive Stylesheet
+   Breakpoints: 360 · 430 · 768 · 1024 · 1280 · 1440
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── 1440px+ Wide Desktop ───────────────────────────────────── */
+@media (min-width: 1440px) {
+  :root { --max-width: 1400px; }
+
+  .collections-grid { grid-template-columns: repeat(3, 1fr); }
+  .stores-grid       { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ─── 1280px Large Desktop ───────────────────────────────────── */
+@media (max-width: 1280px) {
+  .collections-grid  { grid-template-columns: repeat(3, 1fr); }
+  .stores-grid       { grid-template-columns: repeat(3, 1fr); }
+  .about-grid        { gap: 3rem; }
+  .footer-top        { gap: 3rem; }
+}
+
+/* ─── 1024px Tablet Landscape ────────────────────────────────── */
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 70px;
+    --section-padding: 4rem 0;
+  }
+
+  /* Header: hide desktop nav & actions, show hamburger */
+  .main-nav, .header-actions { display: none; }
+  .hamburger { display: flex; }
+
+  /* Hero adjustments */
+  .hero-section     { max-height: 700px; }
+  .hero-content     { gap: 2.5rem; }
+  .hero-campaign-wrap { width: clamp(180px, 24vw, 280px); }
+
+  /* Stats */
+  .stats-section    { margin-top: -40px; }
+  .stats-card       { padding: 1.75rem 2rem; }
+  .stat-divider     { margin: 0 1.25rem; }
+
+  /* Collections */
+  .collections-grid { grid-template-columns: repeat(2, 1fr); }
+  .collections-grid--large { grid-template-columns: repeat(2, 1fr); }
+
+  /* Campaign */
+  .campaign-container { gap: 3rem; }
+  .campaign-img-col   { width: clamp(240px, 40vw, 360px); }
+
+  /* Stores */
+  .stores-grid      { grid-template-columns: repeat(3, 1fr); }
+
+  /* Brands */
+  .brands-grid      { grid-template-columns: repeat(4, 1fr); }
+  .brands-grid--large { grid-template-columns: repeat(4, 1fr); }
+
+  /* Gallery */
+  .gallery-preview-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-preview-item:nth-child(4) { grid-row: span 1; }
+  .gallery-masonry  { columns: 3; }
+
+  /* About */
+  .about-grid       { gap: 2.5rem; }
+  .about-values     { grid-template-columns: 1fr; }
+  .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Contact */
+  .contact-grid     { gap: 3rem; }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1.5fr 1fr 1.25fr;
+    gap: 2.5rem;
+    padding-top: 4rem;
+  }
+}
+
+/* ─── 768px Tablet Portrait ──────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --header-height:   64px;
+    --section-padding: 3.5rem 0;
+  }
+
+  .container { padding: 0 1.25rem; }
+
+  /* Hero */
+  .hero-section     { height: 80vh; min-height: 500px; max-height: 680px; }
+  .hero-content     { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
+  .hero-campaign-wrap {
+    width: 60%;
+    max-width: 260px;
+    order: -1;
+  }
+  .hero-text { text-align: center; }
+  .hero-body { max-width: 100%; }
+  .hero-actions { justify-content: center; }
+
+  /* Stats */
+  .stats-section  { margin-top: -30px; }
+  .stats-card {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+  }
+  .stat-item {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--clr-gray-100);
+    justify-content: center;
+  }
+  .stat-divider { display: none; }
+
+  /* Collections */
+  .collections-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .collections-grid--large { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .collection-card-img-wrap { aspect-ratio: 2/3; }
+
+  /* Campaign — stack vertically */
+  .campaign-container {
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .campaign-img-col { width: 80%; max-width: 360px; margin: 0 auto; }
+  .campaign-body    { max-width: 100%; margin: 0 auto 2rem; }
+
+  /* Stores */
+  .stores-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .stores-grid--full { grid-template-columns: repeat(2, 1fr); }
+
+  /* Brands */
+  .brands-grid { grid-template-columns: repeat(3, 1fr); gap: 0.875rem; }
+  .brands-grid--large { grid-template-columns: repeat(3, 1fr); }
+  .brand-item { padding: 1.5rem 1rem; }
+
+  /* Gallery */
+  .gallery-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+  .gallery-preview-item:first-child,
+  .gallery-preview-item:nth-child(4) { grid-row: span 1; }
+  .gallery-masonry { columns: 2; }
+
+  /* About */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about-img-stack { max-width: 500px; margin: 0 auto; }
+  .about-img--accent { width: 48%; }
+  .about-values  { grid-template-columns: 1fr; }
+  .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .enquiry-form-card { position: static; }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding-top: 3rem;
+  }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}
+
+/* ─── 430px Mobile ───────────────────────────────────────────── */
+@media (max-width: 430px) {
+  :root { --header-height: 60px; --section-padding: 2.75rem 0; }
+
+  .container { padding: 0 1rem; }
+
+  /* Header */
+  .logo-img { height: 38px; }
+
+  /* Hero */
+  .hero-section {
+    height: 90vh;
+    min-height: 480px;
+    max-height: 680px;
+  }
+  .hero-campaign-wrap { width: 70%; max-width: 220px; }
+  .hero-heading { font-size: clamp(1.75rem, 8vw, 2.5rem); }
+  .hero-actions { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .hero-actions .btn { width: 100%; max-width: 280px; justify-content: center; }
+  .hero-arrow { display: none; }
+
+  /* Stats */
+  .stats-card { border-radius: var(--radius-md); }
+  .stat-item  { padding: 1.25rem 1.5rem; }
+  .stat-number { font-size: 2rem; }
+
+  /* Typography */
+  .section-title { font-size: clamp(1.5rem, 7vw, 2.25rem); }
+  .page-hero-title { font-size: clamp(1.5rem, 7vw, 2.25rem); }
+
+  /* Collections — 1 col on very small, 2 col on 430 */
+  .collections-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .collections-grid--large { grid-template-columns: 1fr 1fr; gap: 0.875rem; }
+  .collection-card-title { font-size: 1.125rem; }
+  .collection-card-desc  { display: none; }
+
+  /* Campaign */
+  .campaign-section { padding: 3.5rem 0; }
+  .campaign-img-col { width: 90%; }
+  .campaign-title   { font-size: clamp(1.5rem, 6vw, 2rem); }
+
+  /* Stores */
+  .stores-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .stores-grid--full { grid-template-columns: 1fr; }
+
+  /* Brands */
+  .brands-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .brands-grid--large { grid-template-columns: repeat(2, 1fr); }
+  .brand-item { padding: 1.25rem 0.75rem; }
+  .brand-name-text { font-size: 0.9375rem; }
+
+  /* Gallery */
+  .gallery-preview-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 160px;
+    gap: 0.625rem;
+  }
+  .gallery-masonry { columns: 2; column-gap: 0.625rem; }
+  .gallery-filters { gap: 0.5rem; }
+  .gallery-filter-btn { padding: 0.4rem 0.875rem; font-size: 0.75rem; }
+
+  /* About */
+  .about-img--accent { width: 50%; }
+  .about-stats-grid  { grid-template-columns: repeat(2, 1fr); }
+  .about-stat-num    { font-size: 2rem; }
+
+  /* Contact */
+  .enquiry-form-card    { padding: 1.75rem 1.25rem; }
+  .contact-cta-phones   { flex-direction: column; }
+  .contact-detail-cards { gap: 0.875rem; }
+
+  /* CTA section */
+  .contact-cta-actions { flex-direction: column; align-items: center; }
+  .contact-cta-actions .btn { width: 100%; max-width: 280px; justify-content: center; }
+
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-social { gap: 0.75rem; }
+}
+
+/* ─── 360px Smallest Mobile ──────────────────────────────────── */
+@media (max-width: 360px) {
+  .container { padding: 0 0.875rem; }
+
+  .collections-grid       { grid-template-columns: 1fr; }
+  .collections-grid--large { grid-template-columns: 1fr; }
+  .brands-grid            { grid-template-columns: repeat(2, 1fr); }
+  .brands-grid--large     { grid-template-columns: repeat(2, 1fr); }
+  .gallery-preview-grid   { grid-template-columns: 1fr 1fr; }
+  .gallery-masonry        { columns: 2; }
+
+  .hero-heading           { font-size: 1.625rem; }
+  .hero-campaign-wrap     { width: 80%; }
+
+  .section-title          { font-size: 1.5rem; }
+  .campaign-title         { font-size: 1.5rem; }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ─── High-Contrast Accessibility ───────────────────────────── */
+@media (prefers-contrast: high) {
+  .nav-link, .mobile-nav-link { text-decoration: underline; }
+  .btn-primary { outline: 2px solid var(--clr-white); }
+}
+
+/* ─── Print ──────────────────────────────────────────────────── */
+@media print {
+  .site-header,
+  .hero-section,
+  .site-footer,
+  .hamburger,
+  .mobile-menu,
+  .hero-arrow,
+  .hero-dots { display: none !important; }
+
+  body { color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0; }
+}

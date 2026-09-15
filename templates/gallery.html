@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+
+<section class="page-hero page-hero--sm page-hero--dark" aria-label="Gallery page header">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <p class="page-hero-eyebrow">Lookbook</p>
+    <h1 class="page-hero-title">Wedding Fashion Gallery</h1>
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <a href="{% url 'core:home' %}" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true" class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Gallery</span>
+    </nav>
+  </div>
+</section>
+
+<section class="section gallery-section" aria-labelledby="gallery-page-heading">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Inspiration</p>
+      <h2 class="section-title" id="gallery-page-heading">Wedding Fashion Gallery</h2>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="gallery-filters" role="tablist" aria-label="Gallery categories">
+      <a href="{% url 'core:gallery' %}"
+         class="gallery-filter-btn {% if not active_category %}active{% endif %}"
+         role="tab"
+         aria-selected="{% if not active_category %}true{% else %}false{% endif %}">
+        All
+      </a>
+      {% for cat_key, cat_label in categories %}
+      <a href="{% url 'core:gallery' %}?category={{ cat_key }}"
+         class="gallery-filter-btn {% if active_category == cat_key %}active{% endif %}"
+         role="tab"
+         aria-selected="{% if active_category == cat_key %}true{% else %}false{% endif %}">
+        {{ cat_label }}
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-masonry" id="gallery-grid">
+      {% for img in images %}
+      <div class="gallery-item" data-category="{{ img.category }}">
+        <img src="{{ img.image.url }}"
+             alt="{{ img.title }}"
+             class="gallery-item-img"
+             loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-info">
+            <span class="gallery-item-cat">{{ img.get_category_display }}</span>
+            <span class="gallery-item-title">{{ img.title }}</span>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="empty-gallery-state">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <p>Gallery images coming soon. Follow us on Instagram for updates!</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

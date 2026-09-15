@@ -1,0 +1,1100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section class="hero-section" id="hero" aria-label="Hero">
+  <div class="hero-slides" id="heroSlides">
+
+    <!-- Slide 1 -->
+    <div class="hero-slide active" style="background-image: url('{% static 'images/bg.png' %}');">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content container">
+
+        <div class="hero-campaign-wrap">
+          <img src="{% static 'images/ente.jpeg' %}"
+               alt="Family Wedding Centre — Malayalam Campaign"
+               class="hero-campaign-img" />
+        </div>
+
+        <div class="hero-text">
+          <p class="hero-sub">Kerala's Premier Wedding Fashion Destination</p>
+
+          <h1 class="hero-heading">
+            Your Dream Wedding<br />
+            <em>Begins Here</em>
+          </h1>
+
+          <p class="hero-body">
+            Curated wedding collections from India and beyond — for the bride,
+            the groom, and every precious soul in your family.
+          </p>
+
+          <div class="hero-actions">
+            <a href="{% url 'core:collections' %}"
+               class="btn btn-primary btn-lg">
+              Explore Collections
+            </a>
+
+            <a href="{% url 'core:contact' %}"
+               class="btn btn-outline-light btn-lg">
+              Enquire Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Slide 2 -->
+    <div class="hero-slide"
+         style="background-image: url('{% static 'images/bg.png' %}');">
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content container">
+
+        <div class="hero-text hero-text--center">
+
+          <p class="hero-sub">Bridal &amp; Groom Collections</p>
+
+          <h1 class="hero-heading">
+            Timeless Elegance<br />
+            <em>For Your Special Day</em>
+          </h1>
+
+          <p class="hero-body">
+            From exquisite bridal lehengas to premium sherwani —
+            find your perfect wedding look.
+          </p>
+
+          <div class="hero-actions">
+            <a href="{% url 'core:collections' %}"
+               class="btn btn-primary btn-lg">
+              View Collections
+            </a>
+
+            <a href="{% url 'core:stores' %}"
+               class="btn btn-outline-light btn-lg">
+              Our Stores
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Carousel controls -->
+  <button class="hero-arrow hero-arrow--prev"
+          id="heroPrev"
+          aria-label="Previous slide">
+
+    <svg width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2.5"
+         aria-hidden="true">
+
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+
+  </button>
+
+
+  <button class="hero-arrow hero-arrow--next"
+          id="heroNext"
+          aria-label="Next slide">
+
+    <svg width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2.5"
+         aria-hidden="true">
+
+      <polyline points="9 18 15 12 9 6"/>
+    </svg>
+
+  </button>
+
+
+  <!-- Pagination dots -->
+  <div class="hero-dots"
+       id="heroDots"
+       role="tablist"
+       aria-label="Hero slides">
+
+    <button class="hero-dot active"
+            data-slide="0"
+            role="tab"
+            aria-selected="true"
+            aria-label="Slide 1">
+    </button>
+
+    <button class="hero-dot"
+            data-slide="1"
+            role="tab"
+            aria-selected="false"
+            aria-label="Slide 2">
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════ STATS ═══════════════════════════════════════ -->
+<section class="stats-section" aria-label="Statistics">
+
+  <div class="container">
+
+    <div class="stats-card">
+
+      <!-- Stat 1 -->
+      <div class="stat-item">
+
+        <span class="stat-icon" aria-hidden="true">
+
+          <svg width="32"
+               height="32"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.5">
+
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
+
+          </svg>
+
+        </span>
+
+        <div class="stat-content">
+          <span class="stat-number" data-target="2000000">
+            2M+
+          </span>
+
+          <span class="stat-label">
+            Happy Customers
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="stat-divider" aria-hidden="true"></div>
+
+
+      <!-- Stat 2 -->
+      <div class="stat-item">
+
+        <span class="stat-icon" aria-hidden="true">
+
+          <svg width="32"
+               height="32"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.5">
+
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+
+          </svg>
+
+        </span>
+
+        <div class="stat-content">
+          <span class="stat-number" data-target="10">
+            10+
+          </span>
+
+          <span class="stat-label">
+            Retail Outlets
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="stat-divider" aria-hidden="true"></div>
+
+
+      <!-- Stat 3 -->
+      <div class="stat-item">
+
+        <span class="stat-icon" aria-hidden="true">
+
+          <svg width="32"
+               height="32"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.5">
+
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+
+          </svg>
+
+        </span>
+
+        <div class="stat-content">
+
+          <span class="stat-number" data-target="1000">
+            1K+
+          </span>
+
+          <span class="stat-label">
+            Positive Reviews
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════ COLLECTIONS ═══════════════════════════════════════ -->
+<section class="section collections-section"
+         id="collections"
+         aria-labelledby="collections-heading">
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <p class="section-eyebrow">
+        What We Offer
+      </p>
+
+      <h2 class="section-title" id="collections-heading">
+        The Ultimate Wedding Destination
+      </h2>
+
+      <p class="section-body">
+        We have the trendy and classic outfits for your special day.
+        Make it even more special experience, because your loved ones deserve more.
+        Explore the latest collections from all over India and abroad.
+      </p>
+
+    </div>
+<!-- ═══════════════════════════════════════════════════════
+     COLLECTION CARDS
+═══════════════════════════════════════════════════════ -->
+
+<div class="collections-grid">
+
+
+    <!-- Bridal Wear -->
+    <article class="collection-card"
+             aria-label="Bridal Wear">
+
+        <a href="{% url 'core:collections' %}?category=bridal-wear"
+           class="collection-card-link">
+
+            <div class="collection-card-img-wrap">
+
+                <img
+                    src="{% static 'images/Bridal Wear.png' %}"
+                    alt="Bridal Wear at Family Wedding Centre"
+                    class="collection-card-img"
+                    loading="lazy"
+                />
+
+                <div class="collection-card-overlay"></div>
+
+            </div>
+
+
+            <div class="collection-card-content">
+
+                <h3 class="collection-card-title">
+                    Bridal Wear
+                </h3>
+
+                <p class="collection-card-desc">
+                    Elegant bridal collections crafted for your special day.
+                </p>
+
+                <span class="collection-card-cta">
+
+                    Explore
+
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true">
+
+                        <line
+                            x1="5"
+                            y1="12"
+                            x2="19"
+                            y2="12"/>
+
+                        <polyline
+                            points="12 5 19 12 12 19"/>
+
+                    </svg>
+
+                </span>
+
+            </div>
+
+        </a>
+
+    </article>
+
+
+
+    <!-- Groom Wear -->
+    <article class="collection-card"
+             aria-label="Groom Wear">
+
+        <a href="{% url 'core:collections' %}?category=groom-wear"
+           class="collection-card-link">
+
+            <div class="collection-card-img-wrap">
+
+                <img
+                    src="{% static 'images/Groom Wear.png' %}"
+                    alt="Groom Wear at Family Wedding Centre"
+                    class="collection-card-img"
+                    loading="lazy"
+                />
+
+                <div class="collection-card-overlay"></div>
+
+            </div>
+
+
+            <div class="collection-card-content">
+
+                <h3 class="collection-card-title">
+                    Groom Wear
+                </h3>
+
+                <p class="collection-card-desc">
+                    Refined traditional and contemporary styles for the groom.
+                </p>
+
+                <span class="collection-card-cta">
+
+                    Explore
+
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true">
+
+                        <line
+                            x1="5"
+                            y1="12"
+                            x2="19"
+                            y2="12"/>
+
+                        <polyline
+                            points="12 5 19 12 12 19"/>
+
+                    </svg>
+
+                </span>
+
+            </div>
+
+        </a>
+
+    </article>
+
+
+
+    <!-- Family Wear -->
+    <article class="collection-card"
+             aria-label="Family Wear">
+
+        <a href="{% url 'core:collections' %}?category=family-wear"
+           class="collection-card-link">
+
+            <div class="collection-card-img-wrap">
+
+                <img
+                    src="{% static 'images/Family Wear.png' %}"
+                    alt="Family Wear at Family Wedding Centre"
+                    class="collection-card-img"
+                    loading="lazy"
+                />
+
+                <div class="collection-card-overlay"></div>
+
+            </div>
+
+
+            <div class="collection-card-content">
+
+                <h3 class="collection-card-title">
+                    Family Wear
+                </h3>
+
+                <p class="collection-card-desc">
+                    Beautiful coordinated styles for every member of your family.
+                </p>
+
+                <span class="collection-card-cta">
+
+                    Explore
+
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true">
+
+                        <line
+                            x1="5"
+                            y1="12"
+                            x2="19"
+                            y2="12"/>
+
+                        <polyline
+                            points="12 5 19 12 12 19"/>
+
+                    </svg>
+
+                </span>
+
+            </div>
+
+        </a>
+
+    </article>
+
+
+
+    <!-- Jewellery -->
+    <article class="collection-card"
+             aria-label="Jewellery">
+
+        <a href="{% url 'core:collections' %}?category=jewellery"
+           class="collection-card-link">
+
+            <div class="collection-card-img-wrap">
+
+                <img
+                    src="{% static 'images/Jewellery.png' %}"
+                    alt="Wedding Jewellery at Family Wedding Centre"
+                    class="collection-card-img"
+                    loading="lazy"
+                />
+
+                <div class="collection-card-overlay"></div>
+
+            </div>
+
+
+            <div class="collection-card-content">
+
+                <h3 class="collection-card-title">
+                    Jewellery
+                </h3>
+
+                <p class="collection-card-desc">
+                    Timeless jewellery pieces to complete your wedding look.
+                </p>
+
+                <span class="collection-card-cta">
+
+                    Explore
+
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true">
+
+                        <line
+                            x1="5"
+                            y1="12"
+                            x2="19"
+                            y2="12"/>
+
+                        <polyline
+                            points="12 5 19 12 12 19"/>
+
+                    </svg>
+
+                </span>
+
+            </div>
+
+        </a>
+
+    </article>
+
+
+
+    <!-- Premium Wear -->
+    <article class="collection-card"
+             aria-label="Premium Wear">
+
+        <a href="{% url 'core:collections' %}?category=premium-wear"
+           class="collection-card-link">
+
+            <div class="collection-card-img-wrap">
+
+                <img
+                    src="{% static 'images/Premium Wear.png' %}"
+                    alt="Premium Wear at Family Wedding Centre"
+                    class="collection-card-img"
+                    loading="lazy"
+                />
+
+                <div class="collection-card-overlay"></div>
+
+            </div>
+
+
+            <div class="collection-card-content">
+
+                <h3 class="collection-card-title">
+                    Premium Wear
+                </h3>
+
+                <p class="collection-card-desc">
+                    Exclusive designer styles with timeless elegance.
+                </p>
+
+                <span class="collection-card-cta">
+
+                    Explore
+
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true">
+
+                        <line
+                            x1="5"
+                            y1="12"
+                            x2="19"
+                            y2="12"/>
+
+                        <polyline
+                            points="12 5 19 12 12 19"/>
+
+                    </svg>
+
+                </span>
+
+            </div>
+
+        </a>
+
+    </article>
+
+<!-- Wedding Accessories -->
+<article class="collection-card"
+         aria-label="Wedding Accessories">
+
+    <a href="{% url 'core:collections' %}?category=wedding-accessories"
+       class="collection-card-link">
+
+        <div class="collection-card-img-wrap">
+
+            <img
+                src="{% static 'images/Wedding Footwear.png' %}"
+                alt="Wedding Footwear at Family Wedding Centre"
+                class="collection-card-img"
+                loading="lazy"
+            />
+
+            <div class="collection-card-overlay"></div>
+
+        </div>
+
+        <div class="collection-card-content">
+
+            <h3 class="collection-card-title">
+                Wedding Footwear
+            </h3>
+
+            <p class="collection-card-desc">
+                Stylish and comfortable footwear for your special day.
+            </p>
+
+            <span class="collection-card-cta">
+
+                Explore
+
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true">
+
+                    <line
+                        x1="5"
+                        y1="12"
+                        x2="19"
+                        y2="12"/>
+
+                    <polyline
+                        points="12 5 19 12 12 19"/>
+
+                </svg>
+
+            </span>
+
+        </div>
+
+    </a>
+
+</article>
+
+</div>
+
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION CTA
+═══════════════════════════════════════════════════════ -->
+
+<div class="section-cta">
+
+    <a
+        href="{% url 'core:collections' %}"
+        class="btn btn-primary btn-lg">
+
+        Explore Collections
+
+    </a>
+
+</div>
+
+<!-- ═══════════════════════════════════════ MALAYALAM CAMPAIGN ═══════════════════════════════════════ -->
+<section class="campaign-section"
+         aria-label="Malayalam Campaign">
+
+  <div class="campaign-inner">
+
+    <div class="campaign-bg-left"></div>
+
+    <div class="container campaign-container">
+
+      <div class="campaign-text-col">
+
+        <p class="campaign-eyebrow">
+          Special Campaign
+        </p>
+
+        <h2 class="campaign-title">
+          Making Weddings<br />
+          Unforgettable
+        </h2>
+
+        <p class="campaign-body">
+          Our exclusive Kerala campaign celebrates the joy and grandeur
+          of weddings across Malabar. Every family deserves to look their
+          finest on the most special day of their lives.
+        </p>
+
+        <a href="{% url 'core:contact' %}"
+           class="btn btn-primary btn-lg">
+
+          Enquire Now
+
+        </a>
+
+      </div>
+
+
+      <div class="campaign-img-col">
+
+        <div class="campaign-img-frame">
+
+          <img src="{% static 'images/ente.jpeg' %}"
+               alt="Family Wedding Centre Malayalam Campaign — Special Wedding Offers"
+               class="campaign-img"
+               loading="lazy" />
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="campaign-bg-right"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════ STORES ═══════════════════════════════════════ -->
+<section class="section stores-section"
+         id="stores"
+         aria-labelledby="stores-heading">
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <p class="section-eyebrow">
+        Find Us Near You
+      </p>
+
+      <h2 class="section-title" id="stores-heading">
+        Our Stores
+      </h2>
+
+      <p class="section-subtitle">
+        Shop from our world class showrooms
+      </p>
+
+    </div>
+
+
+    <div class="stores-grid">
+
+      {% for store in stores %}
+
+      {% include "components/store_card.html" with store=store %}
+
+      {% empty %}
+
+      <p class="empty-state">
+        Store information coming soon.
+      </p>
+
+      {% endfor %}
+
+    </div>
+
+
+    <div class="section-cta">
+
+      <a href="{% url 'core:stores' %}"
+         class="btn btn-secondary btn-lg">
+
+        View All Stores
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════ BRANDS ═══════════════════════════════════════ -->
+<section class="section brands-section"
+         id="brands"
+         aria-labelledby="brands-heading">
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <p class="section-eyebrow">
+        Premium Labels
+      </p>
+
+      <h2 class="section-title" id="brands-heading">
+        Our Brands
+      </h2>
+
+    </div>
+
+
+    <div class="brands-grid">
+
+      {% for brand in brands %}
+
+      <div class="brand-item"
+           title="{{ brand.name }}">
+
+        {% if brand.logo %}
+
+        <img src="{{ brand.logo.url }}"
+             alt="{{ brand.name }}"
+             class="brand-logo"
+             loading="lazy" />
+
+        {% else %}
+
+        <span class="brand-name-text">
+          {{ brand.name }}
+        </span>
+
+        {% endif %}
+
+      </div>
+
+
+      {% empty %}
+
+
+      <!-- Static fallback brands -->
+      <div class="brand-item">
+        <span class="brand-name-text">
+          U.S. Polo Assn.
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          Indian Terrain
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          Flying Machine
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          Blackberrys
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          Benetton
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          Basics
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          Allen Solly
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          North Republic
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          Louis Philippe
+        </span>
+      </div>
+
+      <div class="brand-item">
+        <span class="brand-name-text">
+          fête
+        </span>
+      </div>
+
+
+      {% endfor %}
+
+    </div>
+
+
+    <div class="section-cta">
+
+      <a href="{% url 'core:brands' %}"
+         class="btn btn-secondary btn-lg">
+
+        See All Brands
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════ GALLERY PREVIEW ═══════════════════════════════════════ -->
+{% if gallery_images %}
+
+<section class="section gallery-preview-section"
+         id="gallery-preview"
+         aria-labelledby="gallery-heading">
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <p class="section-eyebrow">
+        Lookbook
+      </p>
+
+      <h2 class="section-title" id="gallery-heading">
+        Wedding Fashion Gallery
+      </h2>
+
+    </div>
+
+
+    <div class="gallery-preview-grid">
+
+      {% for img in gallery_images %}
+
+      <a href="{% url 'core:gallery' %}"
+         class="gallery-preview-item"
+         aria-label="{{ img.title }}">
+
+        <img src="{{ img.image.url }}"
+             alt="{{ img.title }}"
+             class="gallery-preview-img"
+             loading="lazy" />
+
+        <div class="gallery-preview-overlay">
+
+          <span class="gallery-preview-category">
+            {{ img.get_category_display }}
+          </span>
+
+        </div>
+
+      </a>
+
+      {% endfor %}
+
+    </div>
+
+
+    <div class="section-cta">
+
+      <a href="{% url 'core:gallery' %}"
+         class="btn btn-secondary btn-lg">
+
+        View Full Gallery
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endif %}
+
+
+<!-- ═══════════════════════════════════════ CONTACT CTA ═══════════════════════════════════════ -->
+<section class="contact-cta-section"
+         aria-labelledby="contact-cta-heading">
+
+  <div class="contact-cta-overlay"></div>
+
+  <div class="container contact-cta-inner">
+
+    <div class="contact-cta-text">
+
+      <h2 class="contact-cta-title"
+          id="contact-cta-heading">
+
+        Make Your Wedding Look Unforgettable
+
+      </h2>
+
+      <p class="contact-cta-body">
+
+        Let our expert team help you create the perfect wedding look.
+        Walk into any of our 7 showrooms across Malabar or reach us today.
+
+      </p>
+
+
+      <div class="contact-cta-actions">
+
+        <a href="{% url 'core:contact' %}"
+           class="btn btn-primary btn-lg">
+
+          Enquire Now
+
+        </a>
+
+
+        <a href="tel:+918943636363"
+           class="btn btn-outline-light btn-lg">
+
+          <svg width="18"
+               height="18"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="2"
+               aria-hidden="true">
+
+            <path d="M22 16.92v3a2 2 0 01-2.18 2
+                     19.79 19.79 0 01-8.63-3.07
+                     A19.5 19.5 0 013.07 9.8
+                     a19.79 19.79 0 01-3.07-8.67
+                     A2 2 0 012 .01h3a2 2 0 012
+                     1.72c.127.96.361 1.903.7 2.81
+                     a2 2 0 01-.45 2.11L6.09 7.91
+                     a16 16 0 006 6l1.27-1.27
+                     a2 2 0 012.11-.45
+                     c.907.339 1.85.573 2.81.7
+                     A2 2 0 0122 14.92z"/>
+
+          </svg>
+
+          Call Us
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% endblock %}

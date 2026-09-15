@@ -1,0 +1,243 @@
+{% load static %}
+
+<article class="store-card" aria-label="{{ store.name }} store">
+
+  <!-- ==============================
+       STORE IMAGE
+       ============================== -->
+
+  <div class="store-card-header">
+
+    {% if store.image %}
+
+      <img
+        src="{{ store.image.url }}"
+        alt="{{ store.name }} showroom"
+        class="store-card-img"
+        loading="lazy"
+      />
+
+    {% else %}
+
+      <div
+        class="store-card-img-placeholder"
+        aria-hidden="true"
+      >
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+
+    {% endif %}
+
+  </div>
+
+
+  <!-- ==============================
+       STORE CONTENT
+       ============================== -->
+
+  <div class="store-card-body">
+
+    <!-- Location Icon -->
+
+    <div
+      class="store-location-icon"
+      aria-hidden="true"
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+    </div>
+
+
+    <!-- Store Name -->
+
+    <h3 class="store-card-name">
+      {{ store.name }}
+    </h3>
+
+
+    <!-- Address -->
+
+    <address class="store-card-address">
+      {{ store.address }}
+    </address>
+
+
+    <!-- Phone / Email -->
+
+    <ul
+      class="store-card-details"
+      role="list"
+    >
+
+      {% if store.phone %}
+
+      <li class="store-detail">
+
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+        </svg>
+
+        <a
+          href="tel:{{ store.phone|cut:' ' }}"
+          class="store-detail-link"
+        >
+          {{ store.phone }}
+        </a>
+
+      </li>
+
+      {% endif %}
+
+
+      {% if store.email %}
+
+      <li class="store-detail">
+
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+
+        <a
+          href="mailto:{{ store.email }}"
+          class="store-detail-link"
+        >
+          {{ store.email }}
+        </a>
+
+      </li>
+
+      {% endif %}
+
+    </ul>
+
+  </div>
+
+
+  <!-- ==============================
+       FOOTER BUTTONS
+       ============================== -->
+
+  <div class="store-card-footer">
+
+
+    <!-- Instagram -->
+
+    {% if store.instagram_url %}
+
+    <a
+      href="{{ store.instagram_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-instagram store-instagram-btn"
+      aria-label="Instagram - {{ store.name }}"
+    >
+
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <rect
+          x="3"
+          y="3"
+          width="18"
+          height="18"
+          rx="5"
+        />
+
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+        />
+
+        <circle
+          cx="17.5"
+          cy="6.5"
+          r="1"
+          fill="currentColor"
+          stroke="none"
+        />
+
+      </svg>
+
+      <span>Instagram</span>
+
+    </a>
+
+    {% endif %}
+
+
+    <!-- Google Maps -->
+
+    {% if store.google_maps_url %}
+
+    <a
+      href="{{ store.google_maps_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-outline-purple btn-sm store-directions-btn"
+      aria-label="Get directions to {{ store.name }}"
+    >
+
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+      </svg>
+
+      <span>Get Directions</span>
+
+    </a>
+
+    {% endif %}
+
+  </div>
+
+</article>

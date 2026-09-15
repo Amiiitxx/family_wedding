@@ -1,0 +1,84 @@
+{% load static %}
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-top container">
+
+    <!-- Brand Column -->
+    <div class="footer-brand">
+      <a href="{% url 'core:home' %}" class="footer-logo-link" aria-label="Family Wedding Centre Home">
+        <img src="{% static 'images/logo-white.png' %}"
+             alt="Family Wedding Centre"
+             class="footer-logo-img"
+             width="160" height="54"
+             onerror="this.src='{% static 'images/logo.png' %}'; this.style.filter='brightness(0) invert(1)';" />
+      </a>
+      <p class="footer-tagline">
+        Kerala's ultimate wedding destination. Trendy &amp; classic outfits for your most special day, from stores across Malabar.
+      </p>
+      <!-- Social Icons -->
+      <div class="footer-social">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#2D0A4E"/></svg>
+        </a>
+        <a href="https://wa.me/918943636363" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h3 class="footer-heading">Quick Links</h3>
+      <ul class="footer-links" role="list">
+        <li><a href="{% url 'core:home' %}"        class="footer-link">Home</a></li>
+        <li><a href="{% url 'core:about' %}"       class="footer-link">About Us</a></li>
+        <li><a href="{% url 'core:collections' %}" class="footer-link">Collections</a></li>
+        <li><a href="{% url 'core:brands' %}"      class="footer-link">Our Brands</a></li>
+        <li><a href="{% url 'core:stores' %}"      class="footer-link">Our Stores</a></li>
+        <li><a href="{% url 'core:gallery' %}"     class="footer-link">Gallery</a></li>
+        <li><a href="{% url 'core:contact' %}"     class="footer-link">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Customer Care -->
+    <div class="footer-col">
+      <h3 class="footer-heading">Customer Care</h3>
+      <ul class="footer-contact-list" role="list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          <a href="tel:+918943636363" class="footer-link">+91 8943 63 63 63</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@familyweddingcentre.com" class="footer-link">info@familyweddingcentre.com</a>
+        </li>
+      </ul>
+
+      <h3 class="footer-heading" style="margin-top:2rem;">Corporate Office</h3>
+      <address class="footer-address">
+        Family Wedding Centre<br />
+        Corporate Office<br />
+        Kunnamangalam, Calicut<br />
+        Kerala — 673571
+      </address>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">&copy; {% now "Y" %} Family Wedding Centre. All Rights Reserved.</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-link-sm">Privacy Policy</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" class="footer-link-sm">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>

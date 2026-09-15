@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="page-hero" style="background-image: url('{% static 'images/about-hero.jpg' %}');" aria-label="About page header">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <p class="page-hero-eyebrow">Our Story</p>
+    <h1 class="page-hero-title">About Family Wedding Centre</h1>
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <a href="{% url 'core:home' %}" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true" class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">About Us</span>
+    </nav>
+  </div>
+</section>
+
+<!-- About Content -->
+<section class="section about-section" aria-labelledby="about-main-heading">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-col">
+        <div class="about-img-stack">
+          <img src="{% static 'images/about-1.jpg' %}"
+               alt="Family Wedding Centre showroom interior"
+               class="about-img about-img--main"
+               loading="lazy" />
+          <img src="{% static 'images/malayalam_campaign.jpg' %}"
+               alt="Family Wedding Centre Malayalam Campaign"
+               class="about-img about-img--accent"
+               loading="lazy" />
+        </div>
+      </div>
+      <div class="about-text-col">
+        <p class="section-eyebrow">The Ultimate Wedding Destination</p>
+        <h2 class="section-title" id="about-main-heading">Kerala's Most Trusted<br />Wedding Fashion Brand</h2>
+        <p class="about-para">
+          Family Wedding Centre has been Kerala's most trusted destination for wedding fashion for over a decade. We believe that your wedding day is among the most precious moments of your life — and you deserve to look and feel extraordinary.
+        </p>
+        <p class="about-para">
+          We offer the finest trendy and classic outfits for your special day. From stunning bridal lehengas and sarees to premium groom sherwanis and suits, our curated collections span the entire wedding ensemble — for the bride, the groom, and every cherished member of your family.
+        </p>
+        <p class="about-para">
+          Our collections are sourced from the best designers and labels across India and abroad, bringing you the widest range of wedding fashion under one roof. With {{ stores_count }}+ retail outlets across Malabar, we are always close to you.
+        </p>
+
+        <!-- Value propositions -->
+        <div class="about-values">
+          <div class="about-value">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Bridal &amp; Groom Wear from Top Designers</span>
+          </div>
+          <div class="about-value">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Exclusive Family &amp; Children's Collections</span>
+          </div>
+          <div class="about-value">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Premium International Fashion Labels</span>
+          </div>
+          <div class="about-value">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Jewellery &amp; Accessories Collections</span>
+          </div>
+          <div class="about-value">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>{{ stores_count }}+ Showrooms Across Malabar Kerala</span>
+          </div>
+          <div class="about-value">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Expert Style Consultation at Every Store</span>
+          </div>
+        </div>
+
+        <a href="{% url 'core:contact' %}" class="btn btn-primary btn-lg" style="margin-top:2rem;">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Strip -->
+<section class="about-stats-strip" aria-label="Our achievements">
+  <div class="container about-stats-grid">
+    <div class="about-stat">
+      <span class="about-stat-num">2M+</span>
+      <span class="about-stat-label">Happy Customers</span>
+    </div>
+    <div class="about-stat">
+      <span class="about-stat-num">10+</span>
+      <span class="about-stat-label">Retail Outlets</span>
+    </div>
+    <div class="about-stat">
+      <span class="about-stat-num">1K+</span>
+      <span class="about-stat-label">Positive Reviews</span>
+    </div>
+    <div class="about-stat">
+      <span class="about-stat-num">10+</span>
+      <span class="about-stat-label">Years of Trust</span>
+    </div>
+  </div>
+</section>
+
+<!-- Brands on About Page -->
+{% if brands %}
+<section class="section brands-section" aria-label="Our brands">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Premium Labels</p>
+      <h2 class="section-title">Brands We Carry</h2>
+    </div>
+    <div class="brands-grid">
+      {% for brand in brands %}
+      <div class="brand-item" title="{{ brand.name }}">
+        {% if brand.logo %}
+        <img src="{{ brand.logo.url }}" alt="{{ brand.name }}" class="brand-logo" loading="lazy" />
+        {% else %}
+        <span class="brand-name-text">{{ brand.name }}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% endblock %}

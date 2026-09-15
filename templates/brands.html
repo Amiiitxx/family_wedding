@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title|default:"Our Brands | Family Wedding Centre" }}{% endblock %}
+
+{% block content %}
+
+<!-- =========================
+     PAGE HERO
+========================= -->
+<section
+  class="page-hero page-hero--sm page-hero--purple"
+  aria-label="Brands page header"
+>
+  <div class="page-hero-overlay"></div>
+
+  <div class="container page-hero-content">
+
+    <p class="page-hero-eyebrow">
+      Premium Labels
+    </p>
+
+    <h1 class="page-hero-title">
+      Our Brands
+    </h1>
+
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+
+      <a
+        href="{% url 'core:home' %}"
+        class="breadcrumb-link"
+      >
+        Home
+      </a>
+
+      <span
+        aria-hidden="true"
+        class="breadcrumb-sep"
+      >
+        ›
+      </span>
+
+      <span class="breadcrumb-current">
+        Our Brands
+      </span>
+
+    </nav>
+
+  </div>
+</section>
+
+
+<!-- =========================
+     BRANDS SECTION
+========================= -->
+<section
+  class="section brands-page-section"
+  aria-labelledby="brands-page-heading"
+>
+
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="section-header">
+
+      <p class="section-eyebrow">
+        Curated Selection
+      </p>
+
+      <h2
+        class="section-title"
+        id="brands-page-heading"
+      >
+        India's Finest Fashion Labels
+      </h2>
+
+      <p class="section-body">
+        We proudly carry an exclusive selection of India's most prestigious
+        fashion brands, bringing you the finest in men's, women's and bridal
+        fashion under one roof.
+      </p>
+
+    </div>
+
+
+    <!-- =========================
+         BRANDS GRID
+    ========================= -->
+    <div class="brands-grid brands-grid--large">
+
+      {% if brands %}
+
+        <!-- DATABASE BRANDS -->
+
+        {% for brand in brands %}
+
+          <div
+            class="brand-item brand-item--large"
+            title="{{ brand.name }}"
+          >
+
+            {% if brand.logo %}
+
+              <img
+                src="{{ brand.logo.url }}"
+                alt="{{ brand.name }}"
+                class="brand-logo brand-logo--large"
+                loading="lazy"
+              />
+
+            {% else %}
+
+              <span class="brand-name-text brand-name-text--large">
+                {{ brand.name }}
+              </span>
+
+            {% endif %}
+
+          </div>
+
+        {% endfor %}
+
+      {% else %}
+
+        <!-- =========================
+             FALLBACK BRANDS
+             Used when DB is empty
+        ========================= -->
+
+        <div
+          class="brand-item brand-item--large"
+          title="U.S. Polo Assn."
+        >
+          <span class="brand-name-text brand-name-text--large">
+            U.S. Polo Assn.
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="Indian Terrain"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            Indian Terrain
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="Flying Machine"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            Flying Machine
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="Blackberrys"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            Blackberrys
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="Benetton"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            Benetton
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="Basics"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            Basics
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="Allen Solly"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            Allen Solly
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="North Republic"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            North Republic
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="Louis Philippe"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            Louis Philippe
+          </span>
+        </div>
+
+
+        <div
+          class="brand-item brand-item--large"
+          title="fête"
+        >
+          <span class="brand-name-text brand-name-text--large">
+            fête
+          </span>
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}
