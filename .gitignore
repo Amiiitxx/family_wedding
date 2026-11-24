@@ -20,3 +20,9 @@ media/
 .vscode/
 .neon
 node_modules/
+
+# Neon CLI Node.js configuration (not required for Django)
+neon.ts
+package.json
+package-lock.json
+node_modules/
