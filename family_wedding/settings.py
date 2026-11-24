@@ -41,12 +41,10 @@ if not DEBUG and SECRET_KEY == 'django-insecure-local-development-only-key':
 
 # Allowed Hosts
 ALLOWED_HOSTS = [
-    host.strip()
-    for host in config(
-        'ALLOWED_HOSTS',
-        default='localhost,127.0.0.1,.vercel.app'
-    ).split(',')
-    if host.strip()
+    'localhost',
+    '127.0.0.1',
+    'family-wedding-mall.vercel.app',
+    '.vercel.app',
 ]
 
 
