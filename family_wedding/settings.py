@@ -4,10 +4,10 @@ Django settings for Family Wedding Centre project.
 Local Development + Vercel Production Configuration.
 """
 
-import os
 from pathlib import Path
 from decouple import config
 from django.core.exceptions import ImproperlyConfigured
+import dj_database_url
 
 
 # =====================================================
@@ -32,14 +32,16 @@ DEBUG = config(
     cast=bool
 )
 
-# Prevent insecure default SECRET_KEY in production
 if not DEBUG and SECRET_KEY == 'django-insecure-local-development-only-key':
     raise ImproperlyConfigured(
         'Set a secure SECRET_KEY in production environment variables.'
     )
 
 
-# Allowed Hosts
+# =====================================================
+# ALLOWED HOSTS
+# =====================================================
+
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
@@ -48,7 +50,10 @@ ALLOWED_HOSTS = [
 ]
 
 
-# CSRF Trusted Origins
+# =====================================================
+# CSRF TRUSTED ORIGINS
+# =====================================================
+
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in config(
@@ -155,60 +160,80 @@ ASGI_APPLICATION = 'family_wedding.asgi.application'
 
 
 # =====================================================
-# DATABASE CONFIGURATION - POSTGRESQL
+# DATABASE CONFIGURATION
+# NEON POSTGRESQL + LOCAL POSTGRESQL
 # =====================================================
 
-DB_SSL_REQUIRE = config(
-    'DB_SSL_REQUIRE',
-    default=False,
-    cast=bool
+DATABASE_URL = config(
+    'DATABASE_URL',
+    default=''
 )
 
-DATABASE_OPTIONS = {}
+if DATABASE_URL:
 
-if DB_SSL_REQUIRE:
-    DATABASE_OPTIONS['sslmode'] = 'require'
+    # Production / Neon PostgreSQL
 
-
-DATABASES = {
-
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': config(
-            'DB_NAME',
-            default='family_wedding_db'
-        ),
-
-        'USER': config(
-            'DB_USER',
-            default='postgres'
-        ),
-
-        'PASSWORD': config(
-            'DB_PASSWORD',
-            default=''
-        ),
-
-        'HOST': config(
-            'DB_HOST',
-            default='localhost'
-        ),
-
-        'PORT': config(
-            'DB_PORT',
-            default='5432'
-        ),
-
-        'OPTIONS': DATABASE_OPTIONS,
-
-        # Suitable starting point for serverless deployments
-        'CONN_MAX_AGE': 0,
-
+    DATABASES = {
+        'default': dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=0,
+            ssl_require=True
+        )
     }
 
-}
+else:
+
+    # Local Development PostgreSQL
+
+    DB_SSL_REQUIRE = config(
+        'DB_SSL_REQUIRE',
+        default=False,
+        cast=bool
+    )
+
+    DATABASE_OPTIONS = {}
+
+    if DB_SSL_REQUIRE:
+        DATABASE_OPTIONS['sslmode'] = 'require'
+
+    DATABASES = {
+
+        'default': {
+
+            'ENGINE': 'django.db.backends.postgresql',
+
+            'NAME': config(
+                'DB_NAME',
+                default='family_wedding_db'
+            ),
+
+            'USER': config(
+                'DB_USER',
+                default='postgres'
+            ),
+
+            'PASSWORD': config(
+                'DB_PASSWORD',
+                default=''
+            ),
+
+            'HOST': config(
+                'DB_HOST',
+                default='localhost'
+            ),
+
+            'PORT': config(
+                'DB_PORT',
+                default='5432'
+            ),
+
+            'OPTIONS': DATABASE_OPTIONS,
+
+            'CONN_MAX_AGE': 0,
+
+        }
+
+    }
 
 
 # =====================================================
@@ -297,6 +322,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if not DEBUG:
 
     # HTTPS Configuration
+
     SECURE_SSL_REDIRECT = True
 
     SECURE_PROXY_SSL_HEADER = (
@@ -305,24 +331,22 @@ if not DEBUG:
     )
 
     # Browser Security
-    SECURE_CONTENT_TYPE_NOSNIFF = True
 
-    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
 
     X_FRAME_OPTIONS = 'DENY'
 
     # Secure Cookies
+
     CSRF_COOKIE_SECURE = True
 
     SESSION_COOKIE_SECURE = True
 
     # HSTS
+
     SECURE_HSTS_SECONDS = 31536000
 
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-    # Prevent MIME type sniffing
-    SECURE_CONTENT_TYPE_NOSNIFF = True
 
 
 # =====================================================
