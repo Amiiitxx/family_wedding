@@ -1,0 +1,20 @@
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.venv/
+
+# Django generated files
+staticfiles/
+
+# User uploaded media
+media/
+
+# IDE
+.vscode/
